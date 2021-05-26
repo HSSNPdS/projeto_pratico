@@ -15,6 +15,20 @@
         box-sizing: border-box;
       }
 
+      h1{
+        margin-bottom: 15px;
+        margin-top: 15px;
+        text-align: center;
+        font-size: 30pt;
+      }
+
+      h2{
+        margin-bottom: 15px;
+        margin-top: 15px;
+        text-align: center;
+        font-size: 15pt;
+      }
+
       #navbar-sc{
         font-weight: bold; 
         font-size: 12pt;
@@ -33,7 +47,23 @@
         flex: 1; 
         justify-self: center;
       }
+      .carousel-control-prev-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+      } 
 
+      .carousel-control-next-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+      }
+
+      .diagram-code{
+        display: flex;
+        flex-direction: row;
+      }
+
+      .card-body{
+        justify-content: center;
+        text-align: center;
+      }
     </style>
 </head>
 <body>
@@ -43,8 +73,8 @@
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <span class="navbar-text" style="float: right; ">
-            <a  id="navbar-sc" class="nav-link active" aria-current="page" href="https://github.com/HSSNPdS/projeto_pratico/blob/main/index.html" target="_blank">Código Fonte</a>
+          <span class="navbar-text" style="display:flex; flex-direction: row;">
+            <a  id="navbar-sc" class="nav-link active" aria-current="page" href="./projeto_pratico.zip" target="_blank">Download código .ino</a>
           </span>
         </div>
     </nav>
@@ -72,41 +102,49 @@
         </button>
       </div>
     </div>
-    
+    <div class="content">
+      <section>
+          <iframe 
+              width="440" 
+              height="250" 
+              style="border: 1px solid #cccccc;" 
+              src="https://thingspeak.com/channels/1382666/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&
+              results=60&title=Umidade+do+solo&type=line&update=15&api_key=CILXO3OXKIS0QB3O">
+          </iframe>
+      </section>
+      <section>
+          <iframe 
+              width="440" 
+              height="250" 
+              style="border: 1px solid #cccccc;" 
+              src="https://thingspeak.com/channels/1382666/charts/2?bgcolor=%23ffffff&color=%23d62020&dynamic=true&
+              results=60&title=Umidade+DHT11&type=line&api_key=CILXO3OXKIS0QB3O">
+          </iframe>
+      </section>
+      <section>
+          <iframe 
+              width="440" 
+              height="250" 
+              style="border: 1px solid #cccccc;" 
+              src="https://thingspeak.com/channels/1382666/charts/3?bgcolor=%23ffffff&color=%23d62020&dynamic=true&
+              results=60&title=Temperatura+DHT11&type=line&api_key=CILXO3OXKIS0QB3O"></iframe>
+      </section> 
+    </div>
+
     <h1 style="margin-bottom: 15px; margin-top: 15px; text-align: center; font-size: 50px">Sobre o Projeto</h1>
 
-    <div class="content">
-        <section>
-            <iframe 
-                width="440" 
-                height="250" 
-                style="border: 1px solid #cccccc;" 
-                src="https://thingspeak.com/channels/1382666/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&
-                results=60&title=Umidade+do+solo&type=line&update=15&api_key=CILXO3OXKIS0QB3O">
-            </iframe>
-        </section>
-        <section>
-            <iframe 
-                width="440" 
-                height="250" 
-                style="border: 1px solid #cccccc;" 
-                src="https://thingspeak.com/channels/1382666/charts/2?bgcolor=%23ffffff&color=%23d62020&dynamic=true&
-                results=60&title=Umidade+DHT11&type=line&api_key=CILXO3OXKIS0QB3O">
-            </iframe>
-        </section>
-        <section>
-            <iframe 
-                width="440" 
-                height="250" 
-                style="border: 1px solid #cccccc;" 
-                src="https://thingspeak.com/channels/1382666/charts/3?bgcolor=%23ffffff&color=%23d62020&dynamic=true&
-                results=60&title=Temperatura+DHT11&type=line&api_key=CILXO3OXKIS0QB3O"></iframe>
-        </section> 
-    </div>
-    
-    
+    <div class="container" style="padding: 20px 10px; text-align: justify; font-size: 15pt;">
 
-    <div class="container" style="padding: 20px 10px;">
+      <p>
+        Em uma tarde de domingo nos reunimos para tratar da parte prática da matéria de "Projeto de Internet das Coisas" 
+        focado no uso do microcontrolador NodeMCU e a plataforma para envio e vizualização de dados ThingSpeak. Usando um
+        sensor de umidade do solo e um sensor de umidade e temperatura DHT11 conectados no NodeMCU, enviamos os dados coletados
+        para o ThingSpeak, que replicamos nessa página de apresentação com o embed fornecido.
+      </p>
+
+      <div style="display:flex; flex-direction: column; align-items: center;">
+        <img src="./assets/team.jpeg" style="width: 40%;" class="img-thumbnail" alt="time">
+      </div>
 
       <p>
         At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque 
@@ -118,98 +156,88 @@
         Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut 
         perferendis doloribus asperiores repellat.
       </p>
+
+      <img src="./assets/iot.png" style="width: 45%;" alt="diagrama">
+
   
-      <p>
-        At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque 
-        corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa
-        qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita 
-        distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime 
-        placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut 
-        officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. 
-        Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut 
-        perferendis doloribus asperiores repellat.
-      </p>
-  
-      <img src="./assets/iot.png" style="width: 50%;" alt="diagrama">
+      <div class="diagram-code">
   
       <div style="background: ghostwhite;
               overflow: scroll;
-              height: 50vh;
+              height: 70vh;
               width: 50vw;
               font-size: 20px; 
               padding: 10px; 
               border: 1px solid lightgray; 
               margin: 10px;">
         <pre>
-            #include <DHT.h>
-            #include <ESP8266WiFi.h>
-            #include <ThingSpeak.h>
-            
-            #define SSID "Ricardo_WIFI"
-            #define SENHA "nakamura15"
-            
-            #define CHANNEL_ID 1382666
-            #define WRITE_API_KEY "EDFM3JSSTT6OXXPT"
-            
-            
-            //Pino ligado é o D4, mas a GPIO dele é 2
-            #define PINO_SENSOR 2
-            #define TIPO_SENSOR DHT11
-            
-            DHT dht(PINO_SENSOR,TIPO_SENSOR);
-            
-            WiFiClient client;
-            
-            
-            void setup() {
-              Serial.begin(9600);
-            
-              WiFi.begin(SSID,SENHA);
-            
-              while(WiFi.status() != WL_CONNECTED){
-                  Serial.println(".");
-                  delay(100);
-              }
-            
-              Serial.println("Conectado com sucesso no wifi");
-              Serial.println("Leituras do Sensor Umidade do Solo");
-              dht.begin();
-            
-              ThingSpeak.begin(client);
-            
-            }
-            
-            void loop() {
-             float temperatura_dht11 = dht.readTemperature();
-             float umidade_dht11 = dht.readHumidity();
-             int valorLido = analogRead(0);
-             float umidade_solo = 100 * ((1024 -(float)valorLido) / 1024);
-             Serial.print("Umidade do solo: ");
-             Serial.print(umidade_solo);
-             Serial.println("%");
-            
-              ThingSpeak.setField(1,umidade_solo);
-              ThingSpeak.setField(2,umidade_dht11);
-              ThingSpeak.setField(3,temperatura_dht11);
-              ThingSpeak.writeFields(CHANNEL_ID,WRITE_API_KEY);
-             delay(30000);
-            }
+  #include <DHT.h>
+  #include <ESP8266WiFi.h>
+  #include <ThingSpeak.h>
+  
+  #define SSID "Ricardo_WIFI"
+  #define SENHA "nakamura15"
+  
+  #define CHANNEL_ID 1382666
+  #define WRITE_API_KEY "EDFM3JSSTT6OXXPT"
+  
+  
+  //Pino ligado é o D4, mas a GPIO dele é 2
+  #define PINO_SENSOR 2
+  #define TIPO_SENSOR DHT11
+  
+  DHT dht(PINO_SENSOR,TIPO_SENSOR);
+  
+  WiFiClient client;
+  
+  
+  void setup() {
+    Serial.begin(9600);
+  
+    WiFi.begin(SSID,SENHA);
+  
+    while(WiFi.status() != WL_CONNECTED){
+        Serial.println(".");
+        delay(100);
+    }
+  
+    Serial.println("Conectado com sucesso no wifi");
+    Serial.println("Leituras do Sensor Umidade do Solo");
+    dht.begin();
+  
+    ThingSpeak.begin(client);
+  
+  }
+  
+  void loop() {
+    float temperatura_dht11 = dht.readTemperature();
+    float umidade_dht11 = dht.readHumidity();
+    int valorLido = analogRead(0);
+    float umidade_solo = 100 * ((1024 -(float)valorLido) / 1024);
+    Serial.print("Umidade do solo: ");
+    Serial.print(umidade_solo);
+    Serial.println("%");
+  
+    ThingSpeak.setField(1,umidade_solo);
+    ThingSpeak.setField(2,umidade_dht11);
+    ThingSpeak.setField(3,temperatura_dht11);
+    ThingSpeak.writeFields(CHANNEL_ID,WRITE_API_KEY);
+    delay(30000);
+  }
         </pre>
+      </div>
+
       </div> 
-
         <h1 style="margin-bottom: 30px; text-align: center; font-size: 50px;">Equipe</h1>
-
-        <img src="./assets/team.jpeg" class="img-thumbnail" alt="time">
-        
-
         <div class="container" style="display: flex; flex-direction: grid; grid-template: 150px / auto auto auto; gap: 120px; justify-content: center;">
             <section>
                 <div class="card" style="width: 14rem;">
                     <img src="https://avatars.githubusercontent.com/u/48365833?v=4" class="card-img-top" alt="...">
                     <div class="card-body">
                       <h5 class="card-title">Andrew Fernandes</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="https://github.com/andrew8gmf" class="btn btn-primary" target="_blank">Github</a>
+
+                      <a href="https://github.com/andrew8gmf" class="btn btn-dark" target="_blank">Github</a>
+                      <a href="https://www.linkedin.com/in/andrewgmfernandes/" class="btn btn-primary" target="_blank">Linkedin</a>
                     </div>
                   </div>
             </section>
@@ -219,8 +247,9 @@
                     <img src="https://avatars.githubusercontent.com/u/55965650?v=4" class="card-img-top" alt="...">
                     <div class="card-body">
                       <h5 class="card-title">Augusto Possatti</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="https://github.com/AGpossati" class="btn btn-primary" target="_blank">Github</a>
+
+                      <a href="https://github.com/AGpossati" class="btn btn-dark" target="_blank">Github</a>
+                      <a href="https://www.linkedin.com/in/augusto-possatti-b78221170/" class="btn btn-primary" target="_blank">Linkedin</a>
                     </div>
                   </div>
             </section>
@@ -230,8 +259,9 @@
                     <img src="https://avatars.githubusercontent.com/u/53915449?v=4" class="card-img-top" alt="...">
                     <div class="card-body">
                       <h5 class="card-title">Bruno Shimura</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="https://github.com/BrunoShimura" class="btn btn-primary" target="_blank">Github</a>
+
+                      <a href="https://github.com/BrunoShimura" class="btn btn-dark" target="_blank">Github</a>
+                      <a href="https://www.linkedin.com/in/brunoshimura/" class="btn btn-primary" target="_blank">Linkedin</a>
                     </div>
                   </div>
             </section>
@@ -243,8 +273,8 @@
                     <img src="https://avatars.githubusercontent.com/u/48365582?v=4" class="card-img-top" alt="...">
                     <div class="card-body">
                     <h5 class="card-title">Felipe Jonas</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="https://github.com/felipenjonas" class="btn btn-primary" target="_blank">Github</a>
+                    <a href="https://github.com/felipenjonas" class="btn btn-dark" target="_blank">Github</a>
+                    <a href="https://www.linkedin.com/in/felipenjonas/" class="btn btn-primary" target="_blank">Linkedin</a>
                     </div>
                 </div>
             </section>
@@ -254,8 +284,8 @@
                     <img src="https://avatars.githubusercontent.com/u/66325166?v=4" class="card-img-top" alt="...">
                     <div class="card-body">
                     <h5 class="card-title">Natan Prado</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="https://github.com/HSSNPdS" class="btn btn-primary" target="_blank">Github</a>
+                    <a href="https://github.com/HSSNPdS" class="btn btn-dark" target="_blank">Github</a>
+                    <a href="https://www.linkedin.com/in/natan-prado-404b661b4/" class="btn btn-primary" target="_blank">Linkedin</a>
                     </div>
                 </div>
             </section>
@@ -265,15 +295,15 @@
                     <img src="./assets/shin.png" class="card-img-top" alt="...">
                     <div class="card-body">
                     <h5 class="card-title">Victor Shin</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="https://github.com/sengchi" class="btn btn-primary" target="_blank">Github</a>
-                    </div>
+                    <a href="https://github.com/sengchi" class="btn btn-dark" target="_blank">Github</a>
+                    <a href="https://www.linkedin.com/in/victor-shin-iti-omae-nakamura-95426b195/" class="btn btn-primary" target="_blank">Linkedin</a>  
+                  </div>
                 </div>
             </section>
-        </div>
+      </div>
 
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-</body>
+  </body>
 </html>
