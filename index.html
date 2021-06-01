@@ -9,10 +9,14 @@
     <title>Teste</title>
 
     <style>
-  
+      html{
+        box-sizing: border-box;
+        margin: 0;
+      }
+
       body{
         background-color: #e4e4e4;
-        box-sizing: border-box;
+        
       }
 
       h1{
@@ -47,6 +51,7 @@
         flex: 1; 
         justify-self: center;
       }
+
       .carousel-control-prev-icon {
         background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
       } 
@@ -102,6 +107,7 @@
         </button>
       </div>
     </div>
+
     <div class="content">
       <section>
           <iframe 
@@ -142,38 +148,36 @@
         para o ThingSpeak, que replicamos nessa página de apresentação com o embed fornecido.
       </p>
 
-      <div style="display:flex; flex-direction: column; align-items: center;">
+      <div style="display:flex; flex-direction: column; align-items: center; margin-bottom: 20px">
         <img src="./assets/team.jpeg" style="width: 40%;" class="img-thumbnail" alt="time">
       </div>
 
       <p>
-        At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque 
-        corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa
-        qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita 
-        distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime 
-        placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut 
-        officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. 
-        Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut 
-        perferendis doloribus asperiores repellat.
+        Nosso projeto tem como finalidade fazer o monitoramento de umidade do solo, umidade do ar e temperatura nas proximidades do local onde uma planta pode se desenvolver. Este protótipo funciona da seguinte maneira: O microcontrolador (NodeMCU 8266) recebe os dados de 2 sensores conectados a ela, são eles: sensor de umidade de solo (higômetro) e o sensor de umdade do ar e tempreatura (DHT11).
       </p>
 
-      <img src="./assets/iot.png" style="width: 45%;" alt="diagrama">
+      <div style="display:flex; flex-direction: column; align-items: center; margin-bottom: 20px;">
+        <img src="./assets/iot.png" style="width: 35%; " alt="diagrama">
+      </div>
 
-  
-      <div class="diagram-code">
-  
+      <p>
+        Após receber os dados, é utilizado o módulo Wifi da placa para se conectar a internet. Após a conexão ser estabelecida nós enviamos os dados coletados para a um canal pré criado na API do Thingspeak. Neste canal está definido 3 variáveis, umidade do solo, umidade do ar e temperatura. E pronto. Também devemos considerar que é necessário instalar algumas bibliotecas para total funcionamento do circuito, tudo pode ser encontrado no código fonte disponibilizado logo abaixo.
+      </p>
+    </div>
+
+    <div style="display:flex; flex-direction: column; align-items: center; margin-bottom: 20px;">
       <div style="background: ghostwhite;
               overflow: scroll;
-              height: 70vh;
-              width: 50vw;
+              height: 500px;
+              width: 800px;
               font-size: 20px; 
               padding: 10px; 
               border: 1px solid lightgray; 
               margin: 10px;">
-        <pre>
-  #include <DHT.h>
-  #include <ESP8266WiFi.h>
-  #include <ThingSpeak.h>
+  <pre>
+  #include <.DHT.h>
+  #include <.ESP8266WiFi.h>
+  #include <.ThingSpeak.h>
   
   #define SSID "Ricardo_WIFI"
   #define SENHA "nakamura15"
@@ -224,10 +228,10 @@
     ThingSpeak.writeFields(CHANNEL_ID,WRITE_API_KEY);
     delay(30000);
   }
-        </pre>
-      </div>
+  </pre>
+    </div>
 
-      </div> 
+      <div> 
         <h1 style="margin-bottom: 30px; text-align: center; font-size: 50px;">Equipe</h1>
         <div class="container" style="display: flex; flex-direction: grid; grid-template: 150px / auto auto auto; gap: 120px; justify-content: center;">
             <section>
@@ -301,7 +305,10 @@
                 </div>
             </section>
       </div>
+    </div>
 
+    <div style="margin-top: 50px;">
+      <h2>PINAR ® seu partido desde 2019.</h2>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
